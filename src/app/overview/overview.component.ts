@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.scss']
+  styleUrls: ['./overview.component.scss'],
 })
 export class OverviewComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  search(text: string) {
+    console.log(text);
   }
-
 }
