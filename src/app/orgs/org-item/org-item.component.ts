@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Org } from '../state/org.model';
 
 @Component({
   selector: 'app-org-item',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./org-item.component.scss'],
 })
 export class OrgItemComponent implements OnInit {
+  @Input() org: Org;
+
   constructor() {}
 
   ngOnInit(): void {}

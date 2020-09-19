@@ -1,6 +1,6 @@
 <p *ngIf="loaders.get$ | async">Loading ...</p>
 <ng-container *ngIf="orgs$ | async as orgs">
-  <div *ngFor="let org of orgs">
-    {{ org | json }}
-  </div>
+  <ng-container *ngFor="let org of orgs">
+    <app-org-item [org]="org"></app-org-item>
+  </ng-container>
 </ng-container>
