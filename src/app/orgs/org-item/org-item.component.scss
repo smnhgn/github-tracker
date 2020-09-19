@@ -1,3 +1,7 @@
 :host {
   display: block;
 }
+
+.card {
+  height: calc(100% - 20px);
+}

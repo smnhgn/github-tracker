@@ -1,13 +1,21 @@
-<ion-header></ion-header>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Organizations</ion-title>
+    <ion-buttons *ngIf="lastId$ | async as lastId" slot="end">
+      <ion-button (click)="loadOrgs(lastId)">
+        <ion-icon slot="icon-only" name="arrow-forward"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
-  <!-- <button (click)="loadOrgs()">Reload</button> -->
   <p *ngIf="error$ | async as error">{{ error.message }}</p>
   <p *ngIf="loading$ | async">Loading ...</p>
 
   <ng-container *ngIf="orgs$ | async as orgs">
     <div class="orgs">
       <ng-container *ngFor="let org of orgs">
-        <app-org-item [org]="org"></app-org-item>
+        <app-org-item [@fade]="'in'" [org]="org"></app-org-item>
       </ng-container>
     </div>
   </ng-container>
