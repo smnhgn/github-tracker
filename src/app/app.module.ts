@@ -23,7 +23,7 @@ import { CommonModule } from '@angular/common';
   providers: [
     {
       provide: NG_ENTITY_SERVICE_CONFIG,
-      useValue: { baseUrl: 'https://jsonplaceholder.typicode.com' },
+      useValue: { baseUrl: 'https://api.github.com' },
     },
   ],
   bootstrap: [AppComponent],
