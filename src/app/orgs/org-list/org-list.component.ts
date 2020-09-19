@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgEntityServiceLoader } from '@datorama/akita-ng-entity-service';
+
 import { OrgsQuery } from '../state/orgs.query';
 import { OrgsService } from '../state/orgs.service';
 
@@ -9,15 +9,16 @@ import { OrgsService } from '../state/orgs.service';
 })
 export class OrgListComponent implements OnInit {
   orgs$ = this.orgsQuery.selectAll();
-  loaders = this.loader.loadersFor('orgs');
+  loading$ = this.orgsQuery.selectLoading();
+  error$ = this.orgsQuery.selectError();
 
-  constructor(
-    private orgsQuery: OrgsQuery,
-    private orgsService: OrgsService,
-    private loader: NgEntityServiceLoader
-  ) {}
+  constructor(private orgsQuery: OrgsQuery, private orgsService: OrgsService) {}
 
   ngOnInit(): void {
-    this.orgsService.get().subscribe();
+    this.getOrgs();
+  }
+
+  getOrgs() {
+    this.orgsService.getOrgs();
   }
 }

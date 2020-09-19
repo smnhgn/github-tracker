@@ -1,4 +1,11 @@
-<p *ngIf="loaders.get$ | async">Loading ...</p>
+<button (click)="getOrgs()">Reload</button>
+
+<p *ngIf="error$ | async as error">
+  {{ error.message }}
+</p>
+
+<p *ngIf="loading$ | async">Loading ...</p>
+
 <ng-container *ngIf="orgs$ | async as orgs">
   <ng-container *ngFor="let org of orgs">
     <app-org-item [org]="org"></app-org-item>
