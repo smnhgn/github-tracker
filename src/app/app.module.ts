@@ -8,6 +8,7 @@ import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
 import { environment } from '../environments/environment';
 import { CommonModule } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
     AkitaNgRouterStoreModule.forRoot(),
+    IonicModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
