@@ -1,0 +1,9 @@
+.orgs {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.orgs > * {
+  flex: 1 1 200px;
+  max-width: 300px;
+}
