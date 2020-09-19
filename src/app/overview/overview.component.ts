@@ -8,7 +8,7 @@ import {
   switchMap,
 } from 'rxjs/operators';
 import { Repository } from './github/repository.interface';
-
+import { Organization } from './github/organization.interface';
 import { GithubService } from './github/github.service';
 
 @Component({
