@@ -4,10 +4,10 @@ import { OrgsQuery } from '../state/orgs.query';
 import { OrgsService } from '../state/orgs.service';
 
 @Component({
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss'],
+  templateUrl: './org-list.component.html',
+  styleUrls: ['./org-list.component.scss'],
 })
-export class ListComponent implements OnInit {
+export class OrgListComponent implements OnInit {
   orgs$ = this.orgsQuery.selectAll();
   loaders = this.loader.loadersFor('orgs');
 
