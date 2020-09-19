@@ -15,10 +15,10 @@ export class OrgListComponent implements OnInit {
   constructor(private orgsQuery: OrgsQuery, private orgsService: OrgsService) {}
 
   ngOnInit(): void {
-    this.getOrgs();
+    this.loadOrgs();
   }
 
-  getOrgs() {
-    this.orgsService.getOrgs();
+  loadOrgs() {
+    this.orgsService.loadOrgs();
   }
 }
