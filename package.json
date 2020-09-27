@@ -22,6 +22,7 @@
     "@datorama/akita": "^4.22.0",
     "@datorama/akita-ng-entity-service": "^1.0.0",
     "@ionic/angular": "^5.3.3",
+    "@ngneat/until-destroy": "^8.0.2",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

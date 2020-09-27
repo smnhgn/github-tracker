@@ -1,1 +1,19 @@
-<p>repo-list works!</p>
+<ion-header>
+  <ion-toolbar>
+    <ng-container [formGroup]="form">
+      <ion-searchbar formControlName="text"></ion-searchbar>
+    </ng-container>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <p *ngIf="error$ | async as error">{{ error.message }}</p>
+  <p *ngIf="loading$ | async">Loading ...</p>
+
+  <ng-container *ngIf="repos$ | async as repos">
+    <div class="repos">
+      <ng-container *ngFor="let repo of repos">
+        <app-repo-item [repo]="repo"></app-repo-item>
+      </ng-container>
+    </div>
+  </ng-container>
+</ion-content>
