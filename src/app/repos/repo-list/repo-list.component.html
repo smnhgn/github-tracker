@@ -7,7 +7,6 @@
 </ion-header>
 <ion-content>
   <p *ngIf="error$ | async as error">{{ error.message }}</p>
-  <p *ngIf="loading$ | async">Loading ...</p>
 
   <ng-container *ngIf="repos$ | async as repos">
     <div class="repos">

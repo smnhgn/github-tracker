@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { debounceTime, distinctUntilChanged, filter, pluck, tap } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, filter, map, pluck, tap, withLatestFrom } from 'rxjs/operators';
 import { ReposQuery } from '../state/repos.query';
 import { ReposService } from '../state/repos.service';
 
@@ -29,13 +29,10 @@ export class RepoListComponent implements OnInit {
         untilDestroyed(this),
         debounceTime(300),
         distinctUntilChanged(),
-        filter(({ text }) => text.length >= 3),
-        pluck('text')
+        withLatestFrom(this.loading$),
+        filter(([{ text }, loading]) => !loading && text.length >= 3),
+        map(([form, _]) => form.text)
       )
-      .subscribe((text) => this.searchRepo(text));
-  }
-
-  searchRepo(text = '') {
-    this.reposService.searchRepo(text);
+      .subscribe((text) => this.reposService.searchRepo(text));
   }
 }
